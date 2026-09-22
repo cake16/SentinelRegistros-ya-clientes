@@ -51,7 +51,7 @@ def registrar():
         (Registro.correo == correo) | (Registro.telefono == telefono)
     ).first()
 
-    if existente and existente.confirmado:
+    if existente:
         if existente.correo == correo:
             flash("Ese correo ya está registrado y confirmado.")
         else:
