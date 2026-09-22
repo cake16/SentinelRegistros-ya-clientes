@@ -2,4 +2,8 @@ Flask==3.0.3
 Flask-SQLAlchemy==3.1.1
 gunicorn==22.0.0
 psycopg2-binary==2.9.10
+<<<<<<< HEAD
 python-dotenv==1.2.3
+=======
+python-dotenv==1.2.3
+>>>>>>> 8b7117b6ef66aaa4826deae9e3da4035d758cc43
