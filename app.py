@@ -47,9 +47,15 @@ def registrar():
         flash("Todos los campos son obligatorios.")
         return redirect(url_for("index"))
 
-    existente = Registro.query.filter_by(correo=correo).first()
-    if existente:
-        flash("Ese correo ya está registrado.")
+    existente = Registro.query.filter(
+        (Registro.correo == correo) | (Registro.telefono == telefono)
+    ).first()
+
+    if existente and existente.confirmado:
+        if existente.correo == correo:
+            flash("Ese correo ya está registrado y confirmado.")
+        else:
+            flash("Ese teléfono ya está registrado con otro correo.")
         return redirect(url_for("index"))
 
     nuevo = Registro(
